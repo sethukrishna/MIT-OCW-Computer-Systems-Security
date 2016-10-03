@@ -1,0 +1,64 @@
+Buffer Over Introduction
+In computer security and programming, a buffer overflow, or buffer overrun, is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory locations. This is a special case of the violation of memory safety.
+Systems software is	often	written	in C
+
+What	can	the attackers do once	they are	executing code?
+How does the adversary take advantage of this code?
+Supply long input, overwrite data on stack past buffer
+Scenario 1: attacker can overwrite the return address, make the program	jump to a place of the attacker's choosing!
+Scenario 2: attacker can set return address to the buffer itself, include some x86 code in there!
+
+FIXING	BUFFER OVERFLOWS
+
+Approach 1: Avoid bugs in C code
+Programmer should carefully check sizes of buffers, strings, arrays, etc
+Use strncpy() instead	of strcpy(), fgets() instead of gets() like that
+Moder versions of gcc and Visual Studio warn you when a program	uses unsafe functions like gets()
+In general, YOU	SHOULD NOT IGNORE COMPILER WARNINGS. Treat warnings like errors!
+Good: Avoid problems in the first place!
+Bad: It's hard to ensure that code is bug-free,	particularly if the code base is large.
+
+
+
+Approach 2: Build tools to help programmers find bugs
+
+
+“Fuzzers” that supply random inputs can be effective for finding bugs.
+Note that fuzzing can be combined with static analysis to maximize code coverage!
+Good:	Even partial analysis is useful, since programs should become strictly less buggy
+Bad: Difficult to prove the complete absence of bugs, esp. for unsafe	code like	C
+
+
+Approach 3: Use a memory-safe language
+JavaScript, C#, Python
+Good: Prevents memory corruption errors by not exposing raw memory addresses to the programmer, and by automatically handling	garbage	collection.
+Bad: Low-level	runtime code DOES use raw memory addresses. So, that runtime core still needs to be correct.
+
+
+
+Mitigation:
+
+Large/complicated legacy code written in C is very prevalent.
+Even newly written code in C/C++ can have memory errors.
+
+"Traditional" buffer overflow steps:
+Adversary gains control over execution (program counter).
+Adversary executes some malicious code.
+
+
+What	are the difficulties to these two steps?
+
+1. Requires	overwriting	a code pointer ( common target is return address in a buffer on the stack)
+2. Requires some interesting code in process's memory
+3. However, the	attacker	needs	to	put this	code in a predictable	location, so that the	attacker	can	set the code pointer	to	point to	the	evil code! 
+
+
+
+Mitigation approach : canaries (e.g., StackGuard,	gcc's SSP)
+
+Idea: OK to overwrite	code	ptr,	as long as we catch it before invocation
+Canary	must go "in front of" return address on the stack,	so that any overflow	which rewrites return address will	also rewrite canary 
+The canary must be either hard to guess or “Terminator canary”:	four	bytes	(0, CR, LF, -1)
+Random	canary generated at program	init time
+What	kinds of vulnerabilities will	a stack	canary not	catch?
+Overwrites	of function	pointer	variables	before	the	canary.
