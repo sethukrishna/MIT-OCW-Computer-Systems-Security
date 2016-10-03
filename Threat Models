@@ -1,8 +1,8 @@
 Plan: Policy,Commoon Goals, Threat Model, Mechanism, Resulting Goal
-Policy : the	goal	you	want	to	achieve.	e.g.	only	Alice	should	read	file	F.
-Goals: confidentiality,	integrity,	availability.
-Threat Model: assumptions	about	what	the	attacker	could	do.
-Mechanism: knobs	that	your	system	provides	to	help	uphold	policy
+Policy : the goal you want to achieve. e.g. only Alice should read file F.
+Goals: confidentiality, integrity, availability.
+Threat Model: assumptions about	what	the	attacker	could	do.
+Mechanism: knobs that your system provides to help uphold policy
 
 Why Securing is hard? making something work is easy, but testing it all ways to break it is hard.
 
