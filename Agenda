@@ -1,0 +1,30 @@
+My Learning Order:
+
+Completed:
+1	Introduction, Threat Models (PDF)
+2	Control Hijacking Attacks (PDF)
+3	Buffer Overflow Exploits and Defenses (PDF)
+4	Privilege Separation (PDF)
+8	Web Security Model (PDF)
+9	Securing Web Applications (PDF)
+
+
+To Learn:
+6	Capabilities (PDF)
+12	Network Security (PDF)
+13	Network Protocols (PDF)
+14	SSL and HTTPS (PDF)
+17	User Authentication (PDF)
+18	Private Browsing (PDF)
+20	Mobile Phone Security (PDF)
+21	Data Tracking (PDF)
+23	Security Economics (PDF)
+7	Sandboxing Native Code (PDF)
+16	Side-Channel Attacks (PDF)
+
+15	Medical Software (no notes)
+19	Anonymous Communication (no notes)
+22	Guest Lecture: Mark Silis and David LaPorte from MIT IS&T (no notes)
+24	Project Presentations (no notes)
+10	Symbolic Execution (no notes)
+11	Ur / Web (no notes
