@@ -1,0 +1,22 @@
+Thread Model: Intercept, modify, inject packets
+
+TCP: Initially was lacking randomness for ACK numbers, only	the	client should	know SNs
+IP - based auth : Spoof	connections	to	applications	that rely	on	IP addresses
+Connection Reset: can reset the sessions, traffic down for mins as routers asssume link failure
+Patch for TCP
+  Nice trick:	ISN	= ISN_oldstyle	+ F(srcip,	srcport,	dstip,	dstport,	secret)
+  F is	some pseudo-random function; roughly, think SHA1.
+  Most operating systems implement the per-connection	ISN workaround	above.
+DNS
+  DNS runs over UDP, no seq numbers, just ports, and dst port fixed (53)
+  Same randomness problem. ~16 bit client port number, easy to guess 
+  Solution: : deploy DNSSEC (signed DNS records, including missing records).
+SYN flooding
+  Solution: make the server stateless, until it receives that third packet (ACK).
+bandwidth amplification attack:
+  Solution: Routers	now block "directed	broadcast"	(packets sent to broadcast address)
+Modern-day	variant: DNS amplification.
+How	to improve security?
+  Protocol-compatible	fixes to TCP implementations
+  Firewalls.
+  Deployment of replacement protocols: SBGP, DNSSEC.	
