@@ -4,6 +4,71 @@ Goals: confidentiality, integrity, availability.
 Threat Model: assumptions about	what	the	attacker	could	do.
 Mechanism: knobs that your system provides to help uphold policy
 
+Threat modeling is a procedure for optimizing Network/ Application/ Internet Security by identifying objectives and vulnerabilities,
+and then defining countermeasures to prevent, or mitigate the effects of, threats to the system. 
+
+Threat modeling is best applied continuously throughout a software development project.
+The ongoing threat modeling process should examine, diagnose, and address these threats.
+
+Threat Modeling - Generic Steps
+For a threat to an application to exist, there must be a combination of the following where the combined likelihood and impact are important enough to do something about. Following is an outline of a generic methodology for Threat Modeling:
+Assessment Scope
+System Modeling
+Identify Threats
+Identify Vulnerabilities
+Examining the Threat History
+Evaluation or Impact on the Business
+Developing a Security Threat Response Plan
+
+Application Threat Modeling
+ [hide] 
+1 Introduction
+2 Decompose the Application
+3 Threat Model Information
+4 External Dependencies
+5 Entry Points
+6 Assets
+7 Trust Levels
+8 Data Flow Diagrams
+8.1 Example
+9 Determine and Rank Threats
+9.1 Threat Categorization
+9.1.1 STRIDE
+10 Security Controls
+11 Threat Analysis
+12 Ranking of Threats
+13 DREAD
+14 Generic Risk Model
+15 Countermeasure Identification
+15.1 Mitigation Strategies
+
+
+Threat Model Information
+The first item in the threat model is the information relating to the threat model. This must include the the following:
+Application Name - The name of the application.
+Application Version - The version of the application.
+Description - A high level description of the application.
+Document Owner - The owner of the threat modeling document.
+Participants - The participants involved in the threat modeling process for this application.
+Reviewer - The reviewer(s) of the threat model.
+
+
+STRIDE
+A threat categorization such as STRIDE is useful in the identification of threats by classifying attacker goals such as:
+Spoofing
+Tampering
+Repudiation
+Information Disclosure
+Denial of Service
+Elevation of Privilege.
+
+DREAD
+Risk_DREAD = (DAMAGE + REPRODUCIBILITY + EXPLOITABILITY + AFFECTED USERS + DISCOVERABILITY) / 5
+
+
+
+
+
 Why Securing is hard? making something work is easy, but testing it all ways to break it is hard.
 
 Case Studies:
